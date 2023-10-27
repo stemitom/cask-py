@@ -5,7 +5,8 @@ hash table storage system meant for fast key-value data with high write and read
 
 You can read the paper here: [Bitcask: A Log-Structured Hash Table for Fast Key/Value Data](https://riak.com/assets/bitcask-intro.pdf)
 
-I created a fork of `py-caskdb`, but this a new repo focusing on working further on what's next after the basic implementation.
+I created a fork of `[py-caskdb](https://github.com/avinassh/py-caskdb/tree/master)`, but this is a new repo focusing on working 
+further on what's next after the basic implementation.
 
 ## Why?
 - I'm interested in databases and distributed systems and the bitcask paper looks friendly
