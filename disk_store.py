@@ -36,7 +36,6 @@ class DiskStorage:
             
     def get(self, key: str) -> str:
         offset = self._key_dir.get_offset(key)
-        print(offset)
         if offset != -1:
             self.file.seek(offset)
             encoded_data = self.file.read()
