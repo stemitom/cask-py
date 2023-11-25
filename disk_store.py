@@ -4,13 +4,14 @@ import time
 from serializer import encode_kv, decode_kv
 from typing import Dict
 
+
 class KeyDir:
     def __init__(self) -> None:
         self.map: Dict[str, int] = {}
-    
+
     def set_key_offset(self, key: str, offset: int) -> None:
         self.map[key] = offset
-        
+
     def get_offset(self, key: str) -> int:
         return self.map.get(key, -1)
 
@@ -20,7 +21,7 @@ class DiskStorage:
         self.filename = file_name
         self.file = open(os.path.abspath(self.filename), "ab+")
         self._key_dir = KeyDir()
-    
+
     def _write(self, data: bytes) -> int:
         offset = self.file.tell()
         self.file.write(data)
@@ -33,7 +34,7 @@ class DiskStorage:
         _, data = encode_kv(timestamp, key, value)
         offset = self._write(data)
         self._key_dir.set_key_offset(key, offset)
-            
+
     def get(self, key: str) -> str:
         offset = self._key_dir.get_offset(key)
         if offset != -1:
