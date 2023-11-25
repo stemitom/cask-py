@@ -6,3 +6,7 @@ lint:
 	flake8 .
 	mypy --strict .
 	pytype .
+
+test:
+	python -m unittest discover -vvv ./tests -p '*.py' -b
+
